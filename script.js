@@ -91,7 +91,23 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var length = parseInt(prompt("Please enter the length of the password (between 8 and 128 characters):"));
+  if(length < 8 || length > 128) {
+      alert("Invalid length. Please choose characters that are between 8 and 128.");
+      return null;
+  }
 
+  var lower = confirm("Would you like lowercase letters?");
+  var upper = confirm("Would you like uppercase letters?");
+  var numeric = confirm("Would you like numerical characters?");
+  var special = confirm("Would you like special characters?");
+
+  if(!lower && !upper && !numeric && !special) {
+    alert("You must select at least one character type.");
+    return null;
+}
+
+return { length, lower, upper, numeric, special };
 }
 
 // Function for getting a random element from an array
@@ -116,7 +132,11 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  var length = parseInt(prompt("Enter the length of the password (between 8 and 128 characters):"));
+  var options = getPasswordOptions();
+  if(options === null) {
+      return;
+  }
+  /*var length = parseInt(prompt("Please enter the length of the password (between 8 and 128 characters):"));
   if(length < 8 || length > 128) {
       alert("Invalid length. Please choose characters that are between 8 and 128.");
       return;
@@ -125,7 +145,7 @@ function generatePassword() {
   var lower = confirm("Would you like lowercase letters?");
   var upper = confirm("Would you like uppercase letters?");
   var numeric = confirm("Would you like numerical characters?");
-  var special = confirm("Would you like special characters?");
+  var special = confirm("Would you like special characters?");*/
 
   let password = '';
   let types = [];
