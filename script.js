@@ -102,21 +102,22 @@ function getPasswordOptions() {
       return false;
   }
 
-  if (confirm("Would you like lowercase letters?"));
-  choiceArr = choiceArr.concat(lowerCasedCharacters); {
+  if (confirm("Would you like lowercase letters?")){
+  choiceArr = choiceArr.concat(lowerCasedCharacters); 
   }
 
-  if (confirm("Would you like uppercase letters?"));
-  choiceArr = choiceArr.concat(upperCasedCharacters); {
+  if (confirm("Would you like uppercase letters?")){
+  choiceArr = choiceArr.concat(upperCasedCharacters); 
   }
 
-  if (confirm("Would you like numerical characters?"));
-  choiceArr = choiceArr.concat(numericCharacters); {
+  if (confirm("Would you like numerical characters?")){
+  choiceArr = choiceArr.concat(numericCharacters); 
   }
   
-  if (confirm("Would you like special characters?"));
-  choiceArr = choiceArr.concat(specialCharacters); {
-  }
+  if (confirm("Would you like special characters?")){
+  choiceArr = choiceArr.concat(specialCharacters); 
+
+    }
   return true;
 }
 
@@ -154,7 +155,7 @@ function writePassword() {
 
   passwordText.value = newPassword;
   } else {
-      passwordTest.value = "";
+      passwordText.value = "";
   }
 }
 
